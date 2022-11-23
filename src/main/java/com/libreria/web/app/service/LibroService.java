@@ -9,5 +9,11 @@ public interface LibroService {
 	public List<Libro>listarLibros();
 	
 	public Libro guardarLibro(Libro libro);
+	
+	public Libro obtenerLibroPorId(Long id);
+	
+	public Libro actualizarLibro(Libro libro);
+	
+	public void eliminarLibroPorId(Long id);
 
 }

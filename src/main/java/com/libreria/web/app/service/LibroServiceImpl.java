@@ -8,10 +8,9 @@ import org.springframework.stereotype.Service;
 import com.libreria.web.app.entity.Libro;
 import com.libreria.web.app.repository.LibroRepository;
 
-
 @Service
-public class LibroServiceImpl implements LibroService{
-	
+public class LibroServiceImpl implements LibroService {
+
 	@Autowired
 	private LibroRepository libroRepository;
 
@@ -22,8 +21,26 @@ public class LibroServiceImpl implements LibroService{
 
 	@Override
 	public Libro guardarLibro(Libro libro) {
-		
+
 		return libroRepository.save(libro);
+	}
+
+	@Override
+	public Libro obtenerLibroPorId(Long id) {
+
+		return libroRepository.findById(id).get();
+	}
+
+	@Override
+	public Libro actualizarLibro(Libro libro) {
+
+		return libroRepository.save(libro);
+	}
+
+	@Override
+	public void eliminarLibroPorId(Long id) {
+		libroRepository.deleteById(id);
+
 	}
 
 }
