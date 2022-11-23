@@ -1,0 +1,45 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Listado de Libros</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+	integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+	crossorigin="anonymous">
+</head>
+<body>
+
+	<div class="container">
+		<div class="row">
+			<h1>Lista de Libros</h1>
+
+		</div>
+		<table class="table table-striped table-bordered">
+			<thead class="table-dark">
+				<tr>
+					<th>ID</th>
+					<th>TITULO</th>
+					<th>AUTOR</th>
+					<th>PRECIO</th>
+					<th>FECHA DE LANZAMIENTO</th>
+					<th>ACCIONES</th>
+				</tr>
+			</thead>
+			<tbody>
+			
+			<tr th:each="libro:${libros}">
+					<td th:text=${libro.id}>ID</td>
+					<td th:text=${libro.titulo}>TITULO</td>
+					<td th:text=${libro.autor}>AUTOR</td>
+					<td th:text=${libro.precio}>PRECIO</td>
+					<td th:text=${libro.fechaLanzamiento}>FECHA DE LANZAMIENTO</td>
+					<td>ACCIONES</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+
+</body>
+</html>
