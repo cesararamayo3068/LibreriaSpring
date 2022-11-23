@@ -20,4 +20,10 @@ public class LibroServiceImpl implements LibroService{
 		return libroRepository.findAll();
 	}
 
+	@Override
+	public Libro guardarLibro(Libro libro) {
+		
+		return libroRepository.save(libro);
+	}
+
 }
