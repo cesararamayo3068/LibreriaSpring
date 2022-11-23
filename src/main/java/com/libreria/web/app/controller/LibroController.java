@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import com.libreria.web.app.entity.Libro;
 import com.libreria.web.app.service.LibroService;
 
 @Controller
@@ -18,6 +20,12 @@ public class LibroController {
 		return "libros";
 	}
 	
+	@GetMapping ("/libros/nuevo")
+	public String crearLibroFormulario(Model model) {
+		Libro libro = new Libro();
+		model.addAttribute("libro", libro);
+		return "crear_libro";
+	}
 	
 
 }
