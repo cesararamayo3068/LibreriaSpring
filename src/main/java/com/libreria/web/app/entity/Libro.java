@@ -23,16 +23,24 @@ public class Libro {
 	@Column (name = "precio" ,nullable = false)
 	private Integer precio;
 	@Column (name = "fecha_lanzamiento" ,nullable = false)
-	private Date fechaLanzamiento;
+	private String fechaLanzamiento;
 	
 	public Libro() {
 		
 	}
 
-	public Libro(Long id, String titulo, String autor, Integer precio, Date fechaLanzamiento) {
+	public Libro(Long id, String titulo, String autor, Integer precio, String fechaLanzamiento) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
+		this.autor = autor;
+		this.precio = precio;
+		this.fechaLanzamiento = fechaLanzamiento;
+	}
+	
+	public Libro(String titulo, String autor, Integer precio, String fechaLanzamiento) {
+		super();
+        this.titulo = titulo;
 		this.autor = autor;
 		this.precio = precio;
 		this.fechaLanzamiento = fechaLanzamiento;
@@ -70,11 +78,11 @@ public class Libro {
 		this.precio = precio;
 	}
 
-	public Date getFechaLanzamiento() {
+	public String getFechaLanzamiento() {
 		return fechaLanzamiento;
 	}
 
-	public void setFechaLanzamiento(Date fechaLanzamiento) {
+	public void setFechaLanzamiento(String fechaLanzamiento) {
 		this.fechaLanzamiento = fechaLanzamiento;
 	}
 
