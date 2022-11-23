@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.libreria.web.app.entity.Libro;
 import com.libreria.web.app.service.LibroService;
@@ -21,11 +23,15 @@ public class LibroController {
 	}
 	
 	@GetMapping ("/libros/nuevo")
-	public String crearLibroFormulario(Model model) {
+	public String mostrarFormularioCrearLibro(Model model) {
 		Libro libro = new Libro();
 		model.addAttribute("libro", libro);
 		return "crear_libro";
 	}
 	
-
+   @PostMapping("/libros")
+   public String guardarLibro(@ModelAttribute("libro") Libro libro) {
+	   libroService.guardarLibro(libro);
+	   return "redirect:/libros";
+   }
 }
